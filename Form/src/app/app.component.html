@@ -1,0 +1,129 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col" id="left"> <!--Form-->
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+      <div id="user-data" ngModelGroup="username_pass" #username_pass="ngModelGroup"> <!--Group_Username/Password-->
+      <div class="form-group"> 
+
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="usernameInput" 
+        ngModel name="username" placeholder="Enter your username" required #username="ngModel" minlength="3">
+        <button type="button" class="btn btn-outline-light" id="suggest" (click)="suggestUserName()">Suggested Username</button>
+        <span *ngIf="!username.valid && username.touched" class="help-block">Username must be at least 3 characters long.</span>
+      </div>
+      
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="text" class="form-control" id="passwordInput" 
+        ngModel name="password" placeholder="Enter your password" required #password="ngModel" minlength="8">
+        <span *ngIf="!password.valid && password.touched" class="help-block">Password must have at least 8 characters.</span>
+      </div>
+
+    </div>
+
+    </div> <!--Group_Username/Password(End)-->
+  
+      <div id="user-data" ngModelGroup="email_phone" #email_phone="ngModelGroup"> <!--Group_Email/Phone-->
+      <div class="form-group"> 
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="emailInput" 
+          ngModel name="email" placeholder="name@example.com" required email #email="ngModel">
+          <span *ngIf="!email.valid && email.touched" class="help-block">Please enter a valid email.</span>
+        </div>
+      
+
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone</label>
+        <input type="text" class="form-control" id="phoneInput" 
+        ngModel name="phone" placeholder="Enter your phone number" required>
+      </div>
+
+    </div>
+    </div> <!--Group_Email/Phone(End)-->
+
+    <div id="user-data" ngModelGroup="secret_answer_gender" #secret_answer_gender="ngModelGroup"> <!--Group_SecretQuestion/Answer/Gender-->
+    <div class="form-group"> 
+
+      <div class="mb-3">
+        <label for="secret" class="form-label">Secret Question</label>
+        <select id="secret" class="form-control" [ngModel]= "defaultQuestion" name="secret">
+            <option value="pet">Your first pet?</option>
+            <option value="teacher">Your first teacher?</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="answer" class="form-label">Answer</label>
+        <input type="text" class="form-control" 
+        ngModel name="answer" id="answerInput" placeholder="Enter your answer" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="gender" class="form-label">Gender:</label>
+        <div class="form-check" *ngFor="let gender of genders">
+          <label class="form-check-label" for="">
+            <input type="radio" name="gender" ngModel [value]="gender" required/> {{gender}}
+          </label>
+        </div>
+      </div>
+
+    </div>
+    </div> <!--Group_SecretQuestion/Answer/Gender(End)-->
+
+    <div id="user-data" ngModelGroup="job_desc_sal" #job_desc_sal="ngModelGroup"> <!--Group_Job/JobDesc/Salary-->
+    <div class="form-group"> 
+
+      <div class="mb-3">
+        <label for="job" class="form-label">Job</label>
+        <input type="text" class="form-control" id="jobInput" 
+        ngModel name="job" placeholder="What is your job?" required>
+      </div>
+  
+      <div class="mb-3">
+        <label for="jobDesc" class="form-label">Job Description</label>
+        <textarea type="text" class="form-control" id="jobDescInput"
+        ngModel name="jobDesc" id="jobDescInput" placeholder="Enter job description" required></textarea>
+      </div>
+  
+      <div class="mb-3">
+        <label for="salary" class="form-label">Salary</label>
+        <input type="number" class="form-control" id="salaryInput" 
+        ngModel name="salary" placeholder="How much is your salary?" required>
+      </div>
+
+    </div>
+    </div> <!--Group_Job/JobDesc/Salary(End)-->
+
+    <p *ngIf="!username_pass.valid && username_pass.touched" id="invalid">User data is invalid</p>
+    <button [disabled]="!f.valid" class="btn btn-light" id="submit" type="submit">Submit</button>
+
+    </form>
+
+    </div> <!--Form(End)-->
+
+    <div class="col" id="right" *ngIf="submitted"> <!--Result-->
+
+      <div id ="result">
+          <h3>Confirm?</h3>
+          <p>Username: {{user.username}}</p>
+          <p>Password: {{user.password}}</p>
+          <p>Email: {{user.email}}</p>
+          <p>Phone: {{user.phone}}</p>
+          <p>Secret Question: {{user.secretQuestion}}</p>
+          <p>Answer: {{user.answer}}</p>
+          <p>Gender: {{user.gender}}</p>
+          <p>Job: {{user.job}}</p>
+          <p>Job Description: {{user.desc}}</p>
+          <p>Salary: {{user.salary}}</p>
+      </div>
+      <button class="btn btn-light" id="confirm" type="confirm">Confirm</button>
+      
+    </div> <!--Result(End)-->
+
+  </div>
+</div>      
+

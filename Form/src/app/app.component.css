@@ -1,0 +1,117 @@
+@font-face{
+    font-family:'Neoneon';
+    src: url('src\assets\fonts\Neoneon-3zaD6.otf');
+    font-weight: normal;
+    font-size: normal;
+}
+
+@font-face{
+    font-family:'Steelr';
+    src: url('src\assets\fonts\SteelrDemo.ttf');
+    font-weight: normal;
+    font-size: normal;
+}
+
+@font-face{
+    font-family:'Adoring';
+    src: url('src\assets\fonts\Adoring.ttf');
+    font-weight: normal;
+    font-size: normal;
+}
+
+.container{
+    margin: 0;
+}
+
+.row{
+    width: 1650px;
+}
+
+.col#left{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 100px;
+  }
+
+.col#right{
+    background-color:rgba(255, 255, 255, 0.288);
+}
+
+#btn1{
+    margin-top: 10px;
+}
+
+.form-control{
+    background-color:rgba(255, 255, 255, 0.747);
+    border: none;
+    height: 50px;
+    width: 40em;
+    color: rgba(101, 108, 116, 0.979);
+}
+
+.form-label{
+    color: white;
+    font-size: 25px;
+    font-family: Steelr, Arial, Helvetica, sans-serif;
+}
+
+.form-check{
+    color: white;
+}
+
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched{
+    border: 2px solid red;
+}
+
+#result{
+    color: white;
+}
+
+#submit, #confirm{
+    font-size: 30px;
+    color: white;
+    border: 0;
+    border-radius: 20px;
+    background-color: rgb(0, 0, 0);
+    margin-left: 150px;
+    margin-top: 20px;
+    width: 300px;
+    height: 60px;
+    font-family: Steelr, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+#confirm{
+    margin-left: 220px;
+}
+
+.help-block{
+    color:red;
+}
+
+
+#result{
+    text-align: center;
+    margin-top: 200px;
+}
+
+h3{
+    font-family: Neoneon, Arial, Helvetica, sans-serif;
+    font-size: 100px;
+}
+
+p{
+    font-family: Adoring, Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+.form-check{
+    font-family: Steelr, Arial, Helvetica, sans-serif;
+    margin-top: 5px;
+}
+
+#invalid{
+    color:red;
+}
+
